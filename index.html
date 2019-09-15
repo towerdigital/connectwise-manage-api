@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>project-template</title>
+  </head>
+  <body>
+    <h1>Test File</h1>
+    <script type="module">
+      /**
+       * Browser module import example
+       *
+       */
+      import { ExampleClass } from './dist/es/index.js';
+
+      const exampleClass = new ExampleClass('Example String');
+
+      console.log(exampleClass.publicProperty);
+      console.log(exampleClass.exampleMethod('Input to example method'));
+      console.log(exampleClass.exampleMethodReturnsArray());
+    </script>
+  </body>
+</html>

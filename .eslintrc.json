@@ -1,0 +1,32 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": ["airbnb", "prettier/@typescript-eslint", "plugin:jest/recommended", "prettier"],
+  "plugins": ["prettier", "jest"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["src/*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+      },
+      "plugins": ["@typescript-eslint"]
+    },
+    {
+      "files": ["*.js", "*.jsx"]
+    }
+  ],
+  "rules": {
+    "prettier/prettier": 2,
+    "no-unused-vars": [1, { "vars": "local", "args": "none" }]
+  }
+}

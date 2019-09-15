@@ -1,0 +1,14 @@
+.DS_Store
+coverage
+node_modules
+
+# build
+dist
+src/*.d.ts
+src/*.d.ts.map
+src/*.js
+src/*.js.map
+*.d.ts
+*.d.ts.map
+
+
