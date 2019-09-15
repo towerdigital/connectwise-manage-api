@@ -1,7 +1,7 @@
 {
-  "name": "project-template",
+  "name": "connectwise-manage-api",
   "version": "0.0.1",
-  "description": "Modern template for JavaScript and TypeScript projects.",
+  "description": "REST API Client for ConnectWise Manage.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "types": "index.d.ts",
