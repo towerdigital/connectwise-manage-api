@@ -1,4 +1,5 @@
 LICENSE
+.env
 .gitignore
 .prettierignore
 .editorconfig

@@ -7,7 +7,7 @@
 import { ClientConfig } from './types';
 
 export class CWManageClient {
-  private config: ClientConfig;
+  config: ClientConfig;
 
   constructor(config: ClientConfig) {
     this.config = config;
