@@ -9,11 +9,16 @@ describe('ConnectWise Client Test Suite', () => {
   let manageClient: CWManageClient;
 
   beforeAll(() => {
+    const companyId: string = process.env.COMPANY_ID as string;
+    const clientId: string = process.env.CLIENT_ID as string;
+    const privateKey: string = process.env.PRIVATE_KEY as string;
+    const publicKey: string = process.env.PUBLIC_KEY as string;
+
     const config: ClientConfig = {
-      companyId: process.env.COMPANY_ID,
-      clientId: process.env.CLIENT_ID,
-      privateKey: process.env.PRIVATE_KEY,
-      publicKey: process.env.PUBLIC_KEY,
+      companyId,
+      clientId,
+      privateKey,
+      publicKey,
       cloudUrl: process.env.CLOUD_URL,
     };
 
