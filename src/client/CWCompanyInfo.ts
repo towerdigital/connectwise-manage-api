@@ -14,14 +14,13 @@ export class CWCompanyInfo {
    * @param loginCompanyId string
    * @param cloudUrl string
    */
-  static get(
+  static async get(
     loginCompanyId: string,
     cloudUrl: string = 'https://na.myconnectwise.net'
   ): Promise<CompanyInfo> {
-    const url: string = `${cloudUrl}login/companyinfo/${loginCompanyId}`;
+    const url: string = `${cloudUrl}/login/companyinfo/${loginCompanyId}`;
 
     return axios.get(url).then(response => {
-      console.log(response.data);
       return <CompanyInfo>response.data;
     });
   }

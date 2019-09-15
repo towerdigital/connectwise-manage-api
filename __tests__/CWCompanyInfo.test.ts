@@ -13,8 +13,8 @@ config({ path: resolve(__dirname, '../.env') });
 describe('CWCompanyInfo', () => {
   test('Call static method and return CompanyInfo', async () => {
     const companyId: string = process.env.COMPANY_ID as string;
-    const cloudUrl: string = process.env.CLOUD_URL as string;
-    const companyInfo = await CWCompanyInfo.get(companyId, cloudUrl);
+    const companyInfo = await CWCompanyInfo.get(companyId);
+
     expect(typeof companyInfo).toBe('object');
     expect(companyInfo.CompanyName).toBeTruthy();
   });

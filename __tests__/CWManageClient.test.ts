@@ -7,12 +7,12 @@
 import { config } from 'dotenv';
 import { resolve } from 'path';
 import { CWManageClient } from '../src/client/CWManageClient';
-import { ClientConfig } from '../src/client/types';
+import { ClientOptions } from '../src/client/types';
 
 config({ path: resolve(__dirname, '../.env') });
 
 describe('CWManageClient', () => {
-  let manageClient: CWManageClient;
+  let cwManage: CWManageClient;
 
   beforeAll(() => {
     const companyId: string = process.env.COMPANY_ID as string;
@@ -20,7 +20,7 @@ describe('CWManageClient', () => {
     const privateKey: string = process.env.PRIVATE_KEY as string;
     const publicKey: string = process.env.PUBLIC_KEY as string;
 
-    const config: ClientConfig = {
+    const config: ClientOptions = {
       companyId,
       clientId,
       privateKey,
@@ -28,11 +28,21 @@ describe('CWManageClient', () => {
       cloudUrl: process.env.CLOUD_URL,
     };
 
-    manageClient = new CWManageClient(config);
+    cwManage = new CWManageClient(config);
   });
 
   test('You can create an instance of CWManageClient', () => {
-    expect(manageClient).toBeInstanceOf(CWManageClient);
-    expect(manageClient.config.companyId.length).toBeGreaterThan(1);
+    expect(cwManage).toBeInstanceOf(CWManageClient);
+    expect(cwManage.config.companyId.length).toBeGreaterThan(1);
+    expect(cwManage.config.companyId).toBeTruthy();
+  });
+
+  test('That it throws an error without valid options object', () => {
+    const createInstance = () => {
+      // @ts-ignore
+      // noinspection JSUnusedLocalSymbols
+      const cwManage = new CWManageClient();
+    };
+    expect(createInstance).toThrow(Error);
   });
 });

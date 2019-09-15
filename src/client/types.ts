@@ -14,13 +14,14 @@ export interface CompanyInfo {
   IsCloud: string;
 }
 
-export interface ClientConfig {
+export interface ClientOptions {
   apiUrl?: string;
   apiVersion?: string;
   authRaw?: string;
   auth?: string;
   clientId: string;
   cloudUrl?: string;
+  codeBase?: string;
   companyId: string;
   publicKey: string;
   privateKey: string;
