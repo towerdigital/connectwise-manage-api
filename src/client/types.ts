@@ -14,7 +14,7 @@ export interface CompanyInfo {
   IsCloud: string;
 }
 
-export interface ClientOptions {
+export interface ConnectWiseOptions {
   apiUrl?: string;
   apiVersion?: string;
   authRaw?: string;

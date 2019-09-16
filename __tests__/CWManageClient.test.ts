@@ -6,13 +6,13 @@
  */
 import { config } from 'dotenv';
 import { resolve } from 'path';
-import { CWManageClient } from '../src/client/CWManageClient';
-import { ClientOptions } from '../src/client/types';
+import { ConnectWiseManageClient } from '../src/client/ConnectWiseManageClient';
+import { ConnectWiseOptions } from '../src/client/types';
 
 config({ path: resolve(__dirname, '../.env') });
 
 describe('CWManageClient', () => {
-  let cwManage: CWManageClient;
+  let cwManage: ConnectWiseManageClient;
 
   beforeAll(() => {
     const companyId: string = process.env.COMPANY_ID as string;
@@ -20,7 +20,7 @@ describe('CWManageClient', () => {
     const privateKey: string = process.env.PRIVATE_KEY as string;
     const publicKey: string = process.env.PUBLIC_KEY as string;
 
-    const config: ClientOptions = {
+    const config: ConnectWiseOptions = {
       companyId,
       clientId,
       privateKey,
@@ -28,11 +28,11 @@ describe('CWManageClient', () => {
       cloudUrl: process.env.CLOUD_URL,
     };
 
-    cwManage = new CWManageClient(config);
+    cwManage = new ConnectWiseManageClient(config);
   });
 
-  test('You can create an instance of CWManageClient', () => {
-    expect(cwManage).toBeInstanceOf(CWManageClient);
+  test('You can create an instance of ConnectWiseManageClient', () => {
+    expect(cwManage).toBeInstanceOf(ConnectWiseManageClient);
     expect(cwManage.config.companyId.length).toBeGreaterThan(1);
     expect(cwManage.config.companyId).toBeTruthy();
   });
@@ -41,7 +41,7 @@ describe('CWManageClient', () => {
     const createInstance = () => {
       // @ts-ignore
       // noinspection JSUnusedLocalSymbols
-      const cwManage = new CWManageClient();
+      const cwManage = new ConnectWiseManageClient();
     };
     expect(createInstance).toThrow(Error);
   });
