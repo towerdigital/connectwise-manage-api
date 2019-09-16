@@ -8,6 +8,10 @@
 import { ConnectWiseOptions } from './types';
 import { ConnectWiseApi } from './api/ConnectWiseApi';
 
+/**
+ *
+ * @class ConnectWise Manage API Client
+ */
 export class ConnectWiseManageClient {
   config: ConnectWiseOptions;
 
@@ -30,7 +34,7 @@ export class ConnectWiseManageClient {
     this.config.authRaw = `${this.config.companyId}+${this.config.publicKey}:${this.config.privateKey}`;
     this.config.auth = `Basic ${Buffer.from(this.config.authRaw).toString('base64')}`;
 
-    this.api = new ConnectWiseApi(options);
+    this.api = new ConnectWiseApi(this.config);
   }
 
   apiTest(): void {
