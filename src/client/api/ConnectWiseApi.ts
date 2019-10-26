@@ -7,13 +7,15 @@
 import axios, { AxiosInstance, AxiosPromise, Method } from 'axios';
 import { ConnectWiseOptions } from '../types';
 
+/**
+ * @class ConnectWiseApi
+ */
 export class ConnectWiseApi {
   http: AxiosInstance;
 
   constructor(options: ConnectWiseOptions) {
     this.http = axios.create({
       baseURL: options.apiUrl,
-      timeout: 1000,
     });
 
     this.http.defaults.headers.common.Authorization = options.auth;

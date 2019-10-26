@@ -38,6 +38,8 @@ export class ConnectWiseManageClient {
   }
 
   apiTest(): void {
-    this.api.http('/service/tickets/1', { method: 'GET' }).then(response => console.log(response));
+    this.api
+      .http('/service/tickets/1', { method: 'GET' })
+      .then(response => console.log(response.data));
   }
 }
